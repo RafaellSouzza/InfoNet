@@ -22,14 +22,6 @@ public class Fornecedor {
     private String contato;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public @NotBlank(message = "Contato é obrigatório") String getContato() {
         return contato;
     }
@@ -44,5 +36,13 @@ public class Fornecedor {
 
     public void setNome(@NotBlank(message = "Nome é obrigatório") String nome) {
         this.nome = nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

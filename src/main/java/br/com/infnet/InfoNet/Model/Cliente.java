@@ -4,9 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
 @Entity
 @Data
@@ -23,15 +23,6 @@ public class Cliente {
     @NotBlank(message = "Email é obrigatório")
     private String email;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public @Email(message = "Email deve ser válido") @NotBlank(message = "Email é obrigatório") String getEmail() {
         return email;
     }
@@ -46,5 +37,13 @@ public class Cliente {
 
     public void setNome(@NotBlank(message = "Nome é obrigatório") String nome) {
         this.nome = nome;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
