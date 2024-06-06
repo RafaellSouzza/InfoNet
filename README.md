@@ -1,43 +1,126 @@
-# InfoNet - Loja Digital
 
----
+# InfoNet
 
-### Descrição do Projeto
+Projeto para uma loja digital usando Spring Boot.
 
-**Nome do Projeto:** InfoNet
+## Descrição
 
-**Descrição Geral:**
-O projeto InfoNet é uma aplicação web voltada para a criação e gestão de uma loja digital, utilizando as tecnologias Java e Spring Boot. A aplicação implementa serviços RESTful que permitem operações de criação, leitura, atualização e deleção (CRUD) de itens no catálogo da loja.
+Este projeto é uma aplicação de exemplo que demonstra como criar uma loja digital utilizando Spring Boot. O projeto inclui várias funcionalidades como gerenciamento de funcionários, produtos, clientes, categorias e fornecedores. Também inclui testes unitários e integração com Springdoc OpenAPI para documentação da API.
 
-O objetivo do projeto é fornecer uma solução robusta, eficiente e escalável para gerenciar produtos, simplificando o desenvolvimento e a manutenção da loja digital. O InfoNet é projetado para ser facilmente extensível, permitindo futuras integrações com outras plataformas e serviços.
+## Tecnologias Utilizadas
 
----
+- **Java 17**
+- **Spring Boot 3.3.0**
+- **Spring Data JPA**
+- **H2 Database**
+- **Springdoc OpenAPI**
+- **Lombok**
+- **Mockito**
+- **JUnit 5**
 
-### Tecnologias Utilizadas
+## Estrutura do Projeto
 
-- **Java 17:** Versão LTS que oferece suporte a longo prazo, com melhorias em desempenho e segurança.
-- **Spring Boot 3.3.0:** Framework que simplifica a configuração e o desenvolvimento de aplicações Spring, garantindo uma base sólida e extensível.
-- **Spring Web:** Utilizado para criar APIs RESTful, facilitando a interação com a aplicação.
-- **Spring Data JPA:** Simplifica a interação com o banco de dados, proporcionando uma camada de persistência eficiente.
-- **H2 Database:** Banco de dados em memória utilizado para desenvolvimento e testes, dispensando configurações complexas.
-- **Lombok:** Biblioteca que reduz o código boilerplate, como getters, setters e construtores, facilitando o desenvolvimento.
-- **Spring DevTools:** Ferramenta que acelera o desenvolvimento com recursos como recarregamento automático de código.
+O projeto está organizado da seguinte forma:
 
----
+- **Controller**: Contém os controladores REST para as entidades `Funcionario` e `Produto`.
+- **Model**: Contém as classes de entidade JPA.
+- **Repository**: Contém as interfaces de repositório JPA.
+- **Service**: Contém as classes de serviço que implementam a lógica de negócios.
+- **Config**: Contém as classes de configuração do Spring, incluindo a configuração do Springdoc OpenAPI.
+- **Test**: Contém os testes unitários para os controladores e serviços.
 
-### Funcionalidades
+## Pré-requisitos
 
-- **CRUD de Itens:**
-  - **Criar Item (POST /api/items):** Adiciona um novo item ao catálogo.
-  - **Ler Todos os Itens (GET /api/items):** Retorna todos os itens do catálogo.
-  - **Ler Item por ID (GET /api/items/{id}):** Retorna um item específico pelo ID.
-  - **Atualizar Item (PUT /api/items/{id}):** Atualiza as informações de um item existente.
-  - **Deletar Item (DELETE /api/items/{id}):** Remove um item do catálogo.
+- **Java 17**: Certifique-se de ter o JDK 17 instalado.
+- **Maven**: Certifique-se de ter o Maven instalado.
 
----
+## Como Rodar o Projeto
 
-### Instalação
+1. **Clone o repositório**:
 
-1. **Clone o repositório:**
    ```sh
    git clone https://github.com/RafaellSouzza/InfoNet.git
+   cd InfoNet
+   ```
+
+2. **Instale as dependências e compile o projeto**:
+
+   ```sh
+   mvn clean install
+   ```
+
+3. **Execute a aplicação**:
+
+   ```sh
+   mvn spring-boot:run
+   ```
+
+   A aplicação estará disponível em `http://localhost:8080`.
+
+## Usando o Swagger (Springdoc OpenAPI)
+
+A documentação da API está disponível através do Swagger UI, que pode ser acessado em:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+### Passos para Acessar o Swagger UI
+
+1. **Inicie a aplicação** utilizando o comando:
+
+   ```sh
+   mvn spring-boot:run
+   ```
+
+2. **Abra um navegador web** e acesse o endereço:
+
+   ```
+   http://localhost:8080/swagger-ui.html
+   ```
+
+3. **Explore a documentação da API**. O Swagger UI fornece uma interface interativa para visualizar e testar os endpoints da API.
+
+## Estrutura do Projeto Atual
+
+### Controladores (Controllers)
+
+- **FuncionarioController**: Gerencia as operações CRUD para funcionários.
+- **ProdutoController**: Gerencia as operações CRUD para produtos.
+
+### Serviços (Services)
+
+- **FuncionarioService**: Implementa a lógica de negócios para funcionários.
+- **ProdutoService**: Implementa a lógica de negócios para produtos.
+
+### Repositórios (Repositories)
+
+- **FuncionarioRepository**: Interface JPA para operações de persistência de funcionários.
+- **ProdutoRepository**: Interface JPA para operações de persistência de produtos.
+
+### Modelos (Models)
+
+- **Funcionario**: Entidade que representa um funcionário.
+- **Produto**: Entidade que representa um produto.
+- **Categoria**: Entidade que representa uma categoria de produto.
+- **Cliente**: Entidade que representa um cliente.
+- **Fornecedor**: Entidade que representa um fornecedor.
+
+### Configuração (Config)
+
+- **SpringDocConfig**: Configura o Springdoc OpenAPI para documentação da API.
+
+## Testes
+
+O projeto inclui testes unitários utilizando JUnit 5 e Mockito. Os testes estão localizados no diretório `src/test/java` e incluem testes para controladores e serviços.
+
+### Executando os Testes
+
+Para executar os testes, utilize o seguinte comando Maven:
+
+```sh
+mvn test
+```
+## Licença
+
+Este projeto é licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
